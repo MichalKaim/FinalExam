@@ -3,9 +3,9 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System.ComponentModel.DataAnnotations;
 
-namespace CrimeApi.Models
+namespace CrimeApi.Models.DTO
 {
-    public class CrimeEvent
+    public class CreateCrimeEvent
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -16,6 +16,5 @@ namespace CrimeApi.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public EventStatus Status { get; set; }
-        public string? LawEnforcementId {get; set; }
     }
 }

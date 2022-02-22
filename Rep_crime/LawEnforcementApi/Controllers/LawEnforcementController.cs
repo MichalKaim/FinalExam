@@ -62,8 +62,9 @@ namespace LawEnforcementApi.Controllers
                 var result = await _repo.GetAll();
 
                 var index = new Random().Next(result.Count());
-                await _repo.AddEventToEntiy(eventId, result.ToList()[index].Id);
-                return Ok();
+                var id = result.ToList()[index].Id;
+                await _repo.AddEventToEntiy(eventId, id);
+                return Ok(id);
             }
             catch (Exception ex)
             {

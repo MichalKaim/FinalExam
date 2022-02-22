@@ -20,6 +20,18 @@ namespace CrimeApi.Services
         }
 
         public async Task<IEnumerable<CrimeEvent>> GetAllAsync() => await _collection.Find(x => true).ToListAsync();
-        public async Task Create(CrimeEvent crimeEvent) => await _collection.InsertOneAsync(crimeEvent);
+        public async Task<string> Create(CrimeEvent crimeEvent)
+        {
+            await _collection.InsertOneAsync(crimeEvent);
+            return crimeEvent.Id;
+        }
+
+        public async Task AddLawEnforcement(string eventId, int lawId)
+        {
+            var newEvent = await _collection.FindAsync(x => x.Id == eventId);
+            var updatedEvent = newEvent.First();
+            updatedEvent.LawEnforcementId = lawId;
+            await _collection.ReplaceOneAsync(x => x.Id == eventId, updatedEvent);
+        }
     }
 }

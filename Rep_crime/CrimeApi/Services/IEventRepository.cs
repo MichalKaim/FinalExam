@@ -4,7 +4,8 @@ namespace CrimeApi.Services
 {
     public interface IEventRepository
     {
-        Task Create(CrimeEvent crimeEvent);
+        Task AddLawEnforcement(string eventId, int lawId);
+        Task<string> Create(CrimeEvent crimeEvent);
         Task<IEnumerable<CrimeEvent>> GetAllAsync();
     }
 }

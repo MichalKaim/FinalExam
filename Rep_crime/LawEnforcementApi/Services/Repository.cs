@@ -23,12 +23,6 @@ namespace LawEnforcementApi.Services
         {
             var eventObj = new Event { Id = eventId };
             var entity = await _context.LawEnforcements.Include(x => x.Events).SingleOrDefaultAsync(x => x.Id == id);
-
-            /*            if (entity.Events == null)
-                        {
-                            entity.Events = new List<string>();
-                        }*/
-
             await _context.Events.AddAsync(eventObj);
 
             if (entity.Events == null)

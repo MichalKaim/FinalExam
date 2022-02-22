@@ -16,6 +16,6 @@ namespace CrimeApi.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public EventStatus Status { get; set; }
-        public string? LawEnforcementId {get; set; }
+        public int? LawEnforcementId {get; set; }
     }
 }

@@ -7,9 +7,6 @@ namespace CrimeApi.Models.DTO
 {
     public class CreateCrimeEvent
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
         public EventType EventType { get; set; }
         public string Description { get; set; }
         public string Localization { get; set; }

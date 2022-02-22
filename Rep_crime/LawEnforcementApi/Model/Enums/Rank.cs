@@ -1,4 +1,4 @@
-﻿namespace LawEnforcementApi.Data.Enums
+﻿namespace LawEnforcementApi.Model.Enums
 {
     public enum Rank
     {

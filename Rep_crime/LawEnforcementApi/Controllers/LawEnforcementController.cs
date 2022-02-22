@@ -55,15 +55,16 @@ namespace LawEnforcementApi.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<int>> AddEvent(string eventId)
+        public async Task<ActionResult<int>> AddEvent(AddEventToLaw newEvent)
         {
+            _logger.LogInformation("ENTER HTTP PUT");
             try
             {
                 var result = await _repo.GetAll();
 
                 var index = new Random().Next(result.Count());
                 var id = result.ToList()[index].Id;
-                await _repo.AddEventToEntiy(eventId, id);
+                await _repo.AddEventToEntiy(newEvent.eventId, id);
                 return Ok(id);
             }
             catch (Exception ex)

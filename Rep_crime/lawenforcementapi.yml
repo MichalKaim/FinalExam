@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lawenforcementapi
+  labels:
+    app: lawenforcementapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lawenforcementapi
+  template:
+    metadata:
+      labels:
+        app: lawenforcementapi
+    spec:
+      containers:
+      - name: lawenforcementservice
+        image: lawenforcementservice
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lawenforcementservice
+spec:
+  selector:
+    app: lawenforcementapi
+  type: LoadBalancer  
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30011

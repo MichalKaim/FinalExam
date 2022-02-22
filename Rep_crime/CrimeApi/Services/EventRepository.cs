@@ -12,9 +12,10 @@ namespace CrimeApi.Services
 
         public EventRepository(IConfiguration configuration)
         {
-            MongoClientSettings settings = MongoClientSettings.FromUrl(new MongoUrl(configuration["ConnectionString"]));
-            settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
-            _client = new MongoClient(settings);
+            //MongoClientSettings settings = MongoClientSettings.FromUrl(new MongoUrl(configuration["ConnectionString"]));
+            //settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+
+            _client = new MongoClient(configuration["ConnectionString"]);
             _database = _client.GetDatabase(configuration["DatabaseName"]);
             _collection = _database.GetCollection<CrimeEvent>(configuration["CollectionName"]);
         }

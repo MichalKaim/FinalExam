@@ -35,7 +35,7 @@ namespace CrimeApi.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogInformation(ex.ToString());   
+                _logger.LogError(ex.ToString());   
             }
 
             return StatusCode(500 ,"MongoDb unreachable");
@@ -44,6 +44,7 @@ namespace CrimeApi.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateEvent(CreateCrimeEvent newEvent)
         {
+            _logger.LogInformation("ENTER HTTP POST: v1");
             string id;
 
             try
@@ -62,10 +63,11 @@ namespace CrimeApi.Controllers
             {
                 var httpClient = _httpClient.CreateClient();
                 HttpRequestMessage request = new(HttpMethod.Put, $"{_configuration["AddEventToLawEnforcement"]}");
-                request.Content = JsonContent.Create(new { eventId = id });
+                request.Content = JsonContent.Create(new AddEventToLaw{ eventId = id });
                 var response = await httpClient.SendAsync(request);
+
                 if(!response.IsSuccessStatusCode)
-                    return StatusCode(500, "Wrong response");
+                    return StatusCode(500, $"Wrong response {response.StatusCode}");
                 
                 var LawEnforcementId = await response.Content.ReadFromJsonAsync<int>();
                 _logger.LogInformation($"LawEnforcement id from HTTP: {LawEnforcementId}");

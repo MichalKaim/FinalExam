@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrimeApi", "CrimeApi\CrimeApi.csproj", "{9843431E-78A1-40F9-904B-955AADE4861B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrimeApi", "CrimeApi\CrimeApi.csproj", "{9843431E-78A1-40F9-904B-955AADE4861B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LawEnforcementApi", "LawEnforcementApi\LawEnforcementApi.csproj", "{493CBF58-8BCD-463B-A9B6-B59EA9945E56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LawEnforcementApi", "LawEnforcementApi\LawEnforcementApi.csproj", "{493CBF58-8BCD-463B-A9B6-B59EA9945E56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notificator", "Notificator\Notificator.csproj", "{689221F2-4842-4F7D-AF9A-461CA45FFA82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{493CBF58-8BCD-463B-A9B6-B59EA9945E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{493CBF58-8BCD-463B-A9B6-B59EA9945E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{493CBF58-8BCD-463B-A9B6-B59EA9945E56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{689221F2-4842-4F7D-AF9A-461CA45FFA82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{689221F2-4842-4F7D-AF9A-461CA45FFA82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{689221F2-4842-4F7D-AF9A-461CA45FFA82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{689221F2-4842-4F7D-AF9A-461CA45FFA82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

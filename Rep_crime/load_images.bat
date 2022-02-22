@@ -1,0 +1,2 @@
+minikube image load lawenforcementservice
+minikube image load crimeservice

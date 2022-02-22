@@ -19,23 +19,20 @@ namespace LawEnforcementApi.Data
                     new LawEnforcement
                     {
                         Id = 1,
-                        Rank = Rank.first,
-                        Events = null
+                        Rank = Rank.first
                     });
 
                 context.LawEnforcements.Add(
                     new LawEnforcement
                     {
                         Id = 2,
-                        Rank = Rank.second,
-                        Events = null
+                        Rank = Rank.second
                     });
                 context.LawEnforcements.Add(
                     new LawEnforcement
                     {
                         Id = 3,
-                        Rank = Rank.third,
-                        Events = null
+                        Rank = Rank.third
                     });
 
                 context.SaveChanges();

@@ -10,6 +10,6 @@ namespace LawEnforcementApi.Model
         [Key]
         public int Id { get; set; }
         public Rank Rank { get; set; }
-        public IList<string>? Events { get; set; }
+        public IList<Event>? Events { get; set; }
     }
 }

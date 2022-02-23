@@ -17,7 +17,7 @@ namespace Notificator
             _smtpClient = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("hohohospitalnotificator@gmail.com", "Hohohopassword123"),
+                Credentials = new NetworkCredential("FinalExamMailCrime@gmail.com", "FinalPass"),
                 EnableSsl = true
             };
         }

@@ -15,14 +15,16 @@ namespace CrimeApi.Controllers
         private readonly IMapper _mapper;
         private readonly IHttpClientFactory _httpClient;
         private readonly IConfiguration _configuration;
+        private readonly IRabbitMqSender _sender;
 
-        public CrimeController(IEventRepository repository, IMapper mapper, ILogger<CrimeController> logger, IHttpClientFactory httpClient, IConfiguration configuration)
+        public CrimeController(IEventRepository repository, IMapper mapper, ILogger<CrimeController> logger, IHttpClientFactory httpClient, IConfiguration configuration, IRabbitMqSender sender)
         {
             _repository = repository;
             _mapper = mapper;
             _logger = logger;
             _httpClient = httpClient;
             _configuration = configuration;
+            _sender = sender;
         }
 
         [HttpGet]
@@ -80,8 +82,9 @@ namespace CrimeApi.Controllers
                 return StatusCode(500, "HTTP Error");
             }
 
+            _sender.SendMessageToNotificator(newEvent.Email);
+
             return Ok();
-            //Wyslij rabbitmq do notificatora v2
         }
     }
 }

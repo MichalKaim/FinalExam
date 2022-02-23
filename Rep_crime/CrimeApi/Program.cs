@@ -8,6 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddSingleton<IEventRepository, EventRepository>();
+builder.Services.AddSingleton<IRabbitMqSender, RabbitMqSender>();
 builder.Services.AddHttpClient();
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
